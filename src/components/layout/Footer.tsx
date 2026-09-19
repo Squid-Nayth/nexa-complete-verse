@@ -1,55 +1,30 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { navigation } from "@/data/navigation";
-import { ArrowRight, ArrowUpIcon } from "lucide-react";
-import { footer } from "@/data/footer";
-import { useState, useRef, useEffect, MutableRefObject } from "react";
-import { useFadeIn } from "@/library/animations/useFadeIn";
-// Import useStaggerZoom
-import { useStaggerZoom } from "@/library/animations/useStaggerZoom";
+import { ArrowRight, ArrowUpIcon, Linkedin, Facebook, Twitter } from "lucide-react";
+import { useState, useRef } from "react";
 import { z } from "zod";
 
-// validation news letter by zod 
+// validation newsletter
 const emailSchema = z
     .string()
     .trim()
     .toLowerCase()
-    .min(1, { message: "Email wajib diisi." })
-    .email({ message: "Format email tidak valid." })
-    .max(254, { message: "Email terlalu panjang." });
+    .min(1, { message: "L'email est requis." })
+    .email({ message: "Format d'email invalide." })
+    .max(254, { message: "Email trop long." });
 
 export default function Footer() {
     const [email, setEmail] = useState("");
     const [error, setError] = useState<string | null>(null);
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
     const letterRef = useRef<HTMLInputElement | null>(null);
-    const upleftRef = useRef<HTMLDivElement>(null);
-    const uprightRef = useRef<HTMLDivElement>(null);
-    const lowerRef = useRef<HTMLDivElement>(null);
-    const copyRef = useRef<HTMLDivElement>(null);
-
-    // 1. Ref Array untuk semua item menu di Middle Section
-    const menuRefs = useRef<(HTMLLIElement | null)[]>([]);
-
-    // 2. Callback Ref untuk mengisi array
-    const setMenuRef = (el: HTMLLIElement | null) => {
-        if (el) {
-            menuRefs.current.push(el);
-        }
-    };
-
-    // Cleanup refs (Best Practice)
-    useEffect(() => {
-        return () => {
-            menuRefs.current = [];
-        };
-    }, []);
 
     const validate = (value: string) => {
         const result = emailSchema.safeParse(value);
         if (!result.success) {
-            setError(result.error.issues[0]?.message ?? "Your Email don't valid, please repeat sign in.");
+            setError(result.error.issues[0]?.message ?? "Email invalide.");
             return false;
         }
         setError(null);
@@ -79,45 +54,35 @@ export default function Footer() {
         if (email.length) validate(email);
     };
 
-    // Animasi FadeIn untuk elemen statis di atas
-    useFadeIn(upleftRef, 0.4);
-    useFadeIn(uprightRef, 0.4);
-    useFadeIn(lowerRef , 0.4); // lowerRef tetap digunakan untuk container (jika tidak semua anaknya dianimasikan)
-    useFadeIn(copyRef, 0.4);
-
-    // 3. Panggil useStaggerZoom pada array item menu.
-    // Gunakan delay yang sedikit lebih lama dari useFadeIn di atas (0.6s)
-    useStaggerZoom(menuRefs as MutableRefObject<(HTMLDivElement | null)[]>, 0.6);
-
     return (
-        <footer className="w-full bg-neutral-900 px-10 lg:px-20 py-20 flex flex-col gap-16">
+        <footer className="w-full bg-[#1F2A37] transition-colors duration-300 px-10 lg:px-20 py-20 flex flex-col gap-16">
             {/* Top Section */}
             <div className="flex flex-col lg:flex-row justify-between gap-10">
-                <div ref={upleftRef} className="flex flex-col lg:gap-5 gap-3" style={{ opacity: 0 }}>
-                    <h4 className="font-sans font-normal text-8xl text-neutral-100">Nexa</h4>
-                    <p className="leading-[140%] lg:text-3xl text-xl text-neutral-400 lg:text-left font-sans font-normal">
-                        Let&apos;s Make Something Cool
+                <div className="flex flex-col lg:gap-5 gap-3">
+                    <img src="/icones/logo-navbar-white.png" alt="ALT Logo" className="h-16 lg:h-20 object-contain self-start" />
+                    <p className="leading-[140%] lg:text-3xl text-xl text-neutral-400 lg:text-left font-sans font-normal mt-4">
+                        Votre partenaire numérique en zone CEMAC.
                     </p>
                 </div>
 
                 {/* Bagian Newsletter */}
-                <div ref={uprightRef} className="flex flex-col gap-4 justify-left items-left" style={{ opacity: 0 }}>
+                <div className="flex flex-col gap-4 justify-left items-left lg:w-1/3">
                     <p className="text-neutral-400 font-sans font-normal text-xl">
-                        Sign up for our newsletter
+                        Abonnez-vous à notre newsletter
                     </p>
 
                     <form
                         onSubmit={handleSubmit}
                         className={`w-full flex items-center border-b transition ${error
                             ? "border-red-500"
-                            : "border-neutral-700 focus-within:border-neutral-400"
+                            : "border-neutral-600 focus-within:border-neutral-300"
                             }`}
                         noValidate
                     >
                         <input
                             ref={letterRef}
                             type="email"
-                            placeholder="Your email here"
+                            placeholder="Votre adresse email"
                             value={email}
                             onChange={(e) => {
                                 setEmail(e.target.value);
@@ -145,83 +110,78 @@ export default function Footer() {
                         </p>
                     ) : status === "success" ? (
                         <p className="text-emerald-400 text-sm mt-1">
-                            Thank You , Your email has been verified.
+                            Merci de votre inscription.
                         </p>
                     ) : null}
 
-                    <p className="text-neutral-600 font-sans font-normal text-lg">
-                        By signing up to receive emails from Motto, you agree to our <br />
-                        Privacy Policy. We treat your info responsibly. <br />
-                        Unsubscribe anytime.
+                    <p className="text-neutral-500 font-sans font-normal text-sm">
+                        En vous inscrivant, vous acceptez notre <Link to="/politique-de-confidentialite" className="underline">Politique de confidentialité</Link>.
                     </p>
                 </div>
             </div>
 
             {/* Middle Section */}
-            {/* Meskipun lowerRef ada di sini, setiap item <li> di dalamnya akan dianimasikan */}
-            <div ref={lowerRef} className="grid lg:grid-cols-3 md:grid-cols-3 gap-10">
-                {/* Navigation */}
-                <ul className="flex flex-col gap-5 justify-start items-start">
-                    {navigation
-                        .filter((item) => item.published)
-                        .map((item, index) => (
-                            // 4. Terapkan Callback Ref dan Style Awal
-                            <li
-                                key={`${item.url}-${index}`}
-                                ref={(el: HTMLLIElement | null) => setMenuRef(el)}
-                                className="font-normal text-neutral-400 text-xl"
-                                style={{ opacity: 0 }} // PENTING: Style awal untuk useStaggerZoom
-                            >
-                                <Link href={item.url} className="hover:text-neutral-100">
-                                    {item.label}
-                                </Link>
-                            </li>
-                        ))}
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-10">
+                {/* Navigation (Top level links) */}
+                <ul className="flex flex-col gap-4 justify-start items-start">
+                    {navigation.map((item, index) => (
+                        <li
+                            key={`nav-${index}`}
+                            className="font-normal text-neutral-400 text-lg"
+                        >
+                            <Link to={item.url} className="hover:text-neutral-100 transition-colors">
+                                {item.label}
+                            </Link>
+                        </li>
+                    ))}
+                    <li className="font-normal text-neutral-400 text-lg">
+                        <Link to="/contact" className="hover:text-neutral-100 transition-colors">
+                            Contact
+                        </Link>
+                    </li>
                 </ul>
 
-                {/* Footer links */}
-                <ul className="flex flex-col gap-5 justify-start items-start">
-                    {footer
-                        .filter(
-                            (item) =>
-                                (item.hideInNavbar || item.published) &&
-                                ["Awards", "Branding", "Careers", "Inquiries", "Contact Us"].includes(item.label)
-                        )
-                        .map((item, index) => (
-                            // 4. Terapkan Callback Ref dan Style Awal
+                {/* Footer links (Légales) */}
+                <ul className="flex flex-col gap-4 justify-start items-start">
+                    {["Mentions légales", "Politique de confidentialité", "Politique de cookies", "CGU"].map((item, index) => {
+                        const slug = item.toLowerCase().replace(/ /g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                        return (
                             <li
-                                key={`${item.url}-${index}`}
-                                ref={(el: HTMLLIElement | null) => setMenuRef(el)}
-                                className="font-normal text-neutral-400 text-xl"
-                                style={{ opacity: 0 }} // PENTING: Style awal untuk useStaggerZoom
+                                key={`legals-${index}`}
+                                className="font-normal text-neutral-400 text-lg"
                             >
-                                <Link href={item.url} className="hover:text-neutral-100">
-                                    {item.label}
+                                <Link to={`/${slug}`} className="hover:text-neutral-100 transition-colors">
+                                    {item}
                                 </Link>
                             </li>
-                        ))}
+                        );
+                    })}
                 </ul>
 
-                {/* Socials & Info - TIDAK di-stagger zoom (tetapi akan tetap terpengaruh oleh useFadeIn pada lowerRef) */}
-                <div className="flex flex-col gap-4">
-                    <ul className="flex flex-row gap-3">
-                        {["Fb", "Ig", "Tw", "In", "Be"].map((item, index) => (
-                            <li key={index} className="text-neutral-400 font-normal text-xl">
-                                {item}
-                            </li>
-                        ))}
+                {/* Info */}
+                <div className="flex flex-col gap-4 col-span-1 lg:col-span-2">
+                    <ul className="flex flex-row gap-5">
+                        <li className="text-neutral-400 hover:text-white cursor-pointer transition-colors p-2 hover:bg-neutral-800 rounded-full">
+                            <a href="#" aria-label="LinkedIn"><Linkedin size={24} /></a>
+                        </li>
+                        <li className="text-neutral-400 hover:text-white cursor-pointer transition-colors p-2 hover:bg-neutral-800 rounded-full">
+                            <a href="#" aria-label="Facebook"><Facebook size={24} /></a>
+                        </li>
+                        <li className="text-neutral-400 hover:text-white cursor-pointer transition-colors p-2 hover:bg-neutral-800 rounded-full">
+                            <a href="#" aria-label="Twitter"><Twitter size={24} /></a>
+                        </li>
                     </ul>
-                    <p className="text-neutral-400 font-normal text-xl">© 2024 Nexa.</p>
-                    <p className="text-neutral-400 font-normal text-xl">NYC | UK | Dallas</p>
+                    <p className="text-neutral-400 font-normal text-lg mt-4">Libreville, Gabon</p>
+                    <p className="text-neutral-400 font-normal text-lg">Zone OHADA/CEMAC</p>
                 </div>
             </div>
 
             {/* Bottom Section */}
-            <div ref={copyRef} className="border-t border-neutral-800 pt-8 flex flex-col lg:flex-row md:flex-row justify-between items-center gap-4" style={{ opacity: 0 }}>
-                <p className="text-neutral-400 text-lg font-normal">Copyright © 2024 Nexa</p>
-                <div className="flex items-center cursor-pointer gap-2 text-neutral-400 hover:text-white">
-                    <Link href="#" className="text-neutral-400 text-lg font-normal">Back to top</Link>
-                    <ArrowUpIcon size={18} />
+            <div className="border-t border-neutral-700 pt-8 flex flex-col lg:flex-row md:flex-row justify-between items-center gap-4">
+                <p className="text-neutral-500 text-sm font-normal">Copyright © {new Date().getFullYear()} Advanced and Logic Technologies</p>
+                <div className="flex items-center cursor-pointer gap-2 text-neutral-500 hover:text-white transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    <span className="text-sm font-normal">Retour en haut</span>
+                    <ArrowUpIcon size={16} />
                 </div>
             </div>
         </footer>

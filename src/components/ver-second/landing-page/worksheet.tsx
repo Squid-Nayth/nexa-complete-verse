@@ -1,8 +1,8 @@
 "use client"
-import Image from "next/image"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import Work from "../../../../public/second/landing-page/body/worker.png"
+const Work = "/second/landing-page/body/worker.png";
 import { useRef } from "react"
 import { useFadeIn } from "@/library/animations/useFadeIn"
 
@@ -51,7 +51,7 @@ export default function WorkerSheet() {
                         </Button>
                     </div>
 
-                    <Image
+                    <img
                         ref={imRef}
                         src={Work}
                         alt="project"

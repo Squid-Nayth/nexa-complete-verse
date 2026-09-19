@@ -2,10 +2,10 @@
 
 import { Button } from "../ui/button"
 import { insightBlog } from "@/data/insight"
-import Link from "next/link"
+import { Link } from "react-router-dom";
 import { useRef, useState } from "react"
 import { ArrowRight } from "lucide-react"
-import Image from "next/image"
+
 import { useFadeIn } from "@/library/animations"
 // Import useStaggerChildren
 import { useStaggerChildren } from "@/library/animations/useStaggerChildren";
@@ -40,7 +40,7 @@ export default function OtherInsight() {
                     <h3 ref={headerRef} className="font-sans font-normal text-black lg:text-4xl text-3xl">Other Insight</h3>
                     <div ref={btnRef}>
                         <Button className="flex flex-row items-center gap-3 ml-[-10px]">
-                            <Link href="/insight" className="flex flex-row items-center gap-2">
+                            <Link to="/insight" className="flex flex-row items-center gap-2">
                                 <span className="text-black lg:text-lg text-base font-normal">
                                     Explore the Insight
                                 </span>
@@ -58,15 +58,13 @@ export default function OtherInsight() {
                 {/* Mobile View */}
                 <div ref={contentRefMobile} className="block md:hidden space-y-8">
                     {blogsToShow.map((item, index) => (
-                        <Link
-                            key={index}
-                            href={item.url}
+                        <Link to={item.url}
                             // Tambahkan class insight-item dan style awal untuk useStaggerChildren
                             className="flex flex-col gap-3 insight-item"
                             style={{ opacity: 0 }}
                         >
                             <div className="relative w-full h-[200px]">
-                                <Image
+                                <img
                                     src={item.image.replace("public/", "/")}
                                     alt={item.title}
                                     fill
@@ -97,15 +95,13 @@ export default function OtherInsight() {
                 {/* Desktop Grid */}
                 <div ref={contentRefDesktop} className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
                     {blogsToShow.map((item, index) => (
-                        <Link
-                            key={index}
-                            href={item.url}
+                        <Link to={item.url}
                             // Tambahkan class insight-item dan style awal untuk useStaggerChildren
                             className="flex flex-col gap-3 insight-item"
                             style={{ opacity: 0 }}
                         >
                             <div className="relative w-full lg:h-[300px]">
-                                <Image
+                                <img
                                     src={item.image.replace("public/", "/")}
                                     alt={item.title}
                                     fill

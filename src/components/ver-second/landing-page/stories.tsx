@@ -1,11 +1,11 @@
 "use client"
 
-import Image from "next/image"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import Canva from "../../../../public/second/landing-page/story/storycanvas.png"
-import UIUX from "../../../../public/second/landing-page/story/uiux.png"
-import Brand from "../../../../public/second/landing-page/story/improve.png"
+const Canva = "/second/landing-page/story/storycanvas.png";
+const UIUX = "/second/landing-page/story/uiux.png";
+const Brand = "/second/landing-page/story/improve.png";
 import { useFadeIn } from "@/library/animations/useFadeIn"
 import { useRef } from "react"
 
@@ -28,7 +28,7 @@ export default function StoryWork() {
                 <div className="w-full flex lg:flex-row md:flex-row flex-col lg:justify-between md:justify-between">
                     <h3 ref={headRef} className="font-sans font-normal text-neutral-800 lg:text-5xl text-3xl leading-[150%]">
                         Latest insights, stories, <br />
-                        and news from Nexa.
+                        and news from ALT.
                     </h3>
 
                     <Button ref={btnRef} className="justify-center gap-[9px] lg:mt-[100px] md:mt-13 mt-10 lg:ml-0 md:ml-0 ml-[-150px]">
@@ -40,14 +40,14 @@ export default function StoryWork() {
                 <div className="w-full flex flex-col lg:gap-18 gap-12">
                     <div className="w-full flex lg:flex-row md:flex-row flex-col lg:gap-20 gap-12">
                         <div ref={imcaRef} className="w-full">
-                            <Image
+                            <img
                                 src={Canva}
                                 alt="business model canvas"
                                 className="lg:scale-[95%] grayscale"
                             />
                         </div>
                         <div ref={imdegRef} className="w-full lg:pt-30">
-                            <Image
+                            <img
                                 src={UIUX}
                                 alt="business model canvas"
                                 className="lg:scale-[95%] grayscale"
@@ -55,7 +55,7 @@ export default function StoryWork() {
                         </div>
                     </div>
                     <div ref={imbRef} className="w-full lg:pl-10">
-                        <Image
+                        <img
                             src={Brand}
                             alt="business model canvas"
                             className="lg:scale-[55%] lg:mt-[-200px] lg:ml-[-100px] grayscale"

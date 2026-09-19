@@ -1,9 +1,7 @@
 "use client"
 
-import Image from "next/image"
 import { Button } from "../ui/button"
 import { ArrowRight } from "lucide-react"
-import Discusion from "../../../public/about/Video-Showcase.png"
 import { useRef } from "react"
 import { useFadeIn } from "@/library/animations/useFadeIn"
 
@@ -19,37 +17,35 @@ export default function AboutExplor() {
     useFadeIn(imageRef, 0.3);
 
     return (
-        <div className="max-w-full w-full bg-black lg:px-20 lg:py-20 md:px-14 md:py-14 px-8 py-8">
-            <div className="w-full flex flex-col gap-14">
+        <div className="max-w-full w-full bg-alt-slate dark:bg-[#0F172A] transition-colors duration-300 lg:px-20 lg:py-24 md:px-14 md:py-20 px-8 py-16">
+            <div className="w-full flex flex-col gap-16">
                 <div className="w-full flex flex-col gap-10">
-                    <h2 ref={headeRef} className="font-sans font-medium text-start text-neutral-100 lg:text-4xl md:text-3xl text-xl leading-[150%]">
-                        Shaping Tomorrow&apos;s Digital Realms. <br />
-                        One Pixel at a Time
+                    <h2 ref={headeRef} className="font-sans font-medium text-start text-white lg:text-4xl md:text-3xl text-3xl leading-[140%]">
+                        Nos Partenaires & Clients <br />
+                        <span className="text-alt-blue">Un réseau de confiance</span>
                     </h2>
 
-                    <div className="w-full flex flex-col lg:pl-130 lg:gap-10 gap-5">
-                        <p ref={describeRef} className="text-white font-normal font-sans lg:text-2xl md:text-lg text-base leading-[170%]">
-                            Here, we transform your digital dreams into reality <br />
-                            — pushing boundaries and setting new standards in the digital landscape.
+                    <div className="w-full flex flex-col lg:pl-[30%] lg:gap-10 gap-8">
+                        <p ref={describeRef} className="text-neutral-300 font-normal font-sans lg:text-xl md:text-lg text-base leading-[160%]">
+                            Nous collaborons avec les leaders technologiques mondiaux pour vous offrir des solutions de pointe. Nos clients, allant des PME aux institutions gouvernementales, nous font confiance pour sécuriser et optimiser leur avenir numérique.
                         </p>
 
-                        <div ref={buttonRef} className="lg:ml-140">
-                            <Button className="justify-center gap-[9px] ml-[-10px] border-b-2 border-black">
-                                <p className="text-white text-lg font-medium">Explore More</p>
-                                <ArrowRight height={22} width={22} className="mt-[2px] text-white" />
+                        <div ref={buttonRef} className="lg:ml-[10%]">
+                            <Button className="justify-center gap-2 border-b border-transparent hover:border-white bg-transparent hover:bg-transparent px-0 transition-colors">
+                                <p className="text-white text-lg font-medium">Devenir partenaire</p>
+                                <ArrowRight height={20} width={20} className="mt-[2px] text-white" />
                             </Button>
                         </div>
                     </div>
                 </div>
 
-                <div ref={imageRef}>
-                    <Image
-                        src={Discusion}
-                        alt="discusion teams"
-                        className="lg:aspect-[16/9] aspect-[5/3] grayscale scale-[100%]"
+                <div ref={imageRef} className="w-full rounded-2xl overflow-hidden shadow-2xl">
+                    <img
+                        src="/icones/consulting.jpg"
+                        alt="Réunion avec nos partenaires"
+                        className="w-full aspect-[16/9] md:aspect-[21/9] object-cover opacity-90 hover:opacity-100 transition-opacity"
                     />
                 </div>
-
             </div>
         </div>
     )

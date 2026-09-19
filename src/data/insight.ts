@@ -9,65 +9,44 @@ export type insightBlog = {
 export const insightBlog = [
     {
         id: 1,
-        image: "public/insight-blog/inblog-01.png",
-        title: "Adapting to Changing Markets",
-        date: "11 April 2024",
-        url: "/blog-detail"
+        image: "/icones/african-american-business-woman-working-computer-bar.jpg",
+        title: "Les enjeux de la cybersécurité en zone CEMAC",
+        date: "11 Septembre 2024",
+        url: "#"
     },
     {
         id: 2,
-        image: "public/insight-blog/inblog-02.png",
-        title: "Data-Driven Growth Strategies",
-        date: "09 April 2024",
-        url: "/blog-detail/two"
+        image: "/icones/developers-data-center-workspace-coding-laptop-analyzing-metrics.jpg",
+        title: "Pourquoi externaliser son SI avec l'infogérance ?",
+        date: "09 Septembre 2024",
+        url: "#"
     },
     {
         id: 3,
-        image: "public/insight-blog/inblog-03.png",
-        title: "Strategy for Ecommerce Success",
-        date: "04 April 2024",
-        url: "/blog-detail/three"
+        image: "/icones/hero3.jpg",
+        title: "Stratégie e-Commerce : Les clés du succès au Gabon",
+        date: "04 Septembre 2024",
+        url: "#"
     },
     {
         id: 4,
-        image: "public/insight-blog/inblog-04.png",
-        title: "Navigating Branding Challenges",
-        date: "02 April 2024",
-        url: "/blog-detail/four"
+        image: "/icones/colleagues-team-working-company-paperwork-doig-teamwork-analyze-documents-online-research-information-planning-corporate-presentation-with-data-charts-job-collaboration.jpg",
+        title: "Comment l'IA transforme la gestion de projet",
+        date: "02 Septembre 2024",
+        url: "#"
     },
     {
         id: 5,
-        image: "public/insight-blog/inblog-05.png",
-        title: "AI Become a Expert Analysis",
-        date: "01 April 2024",
-        url: "blog-detail/five"
+        image: "/icones/upbeat-software-engineer-utilizing-cloud-computing-tech.jpg",
+        title: "Migration Cloud : Par où commencer ?",
+        date: "28 Août 2024",
+        url: "#"
     },
     {
         id: 6,
-        image: "public/insight-blog/inblog-06.png",
-        title: "App Innovation Unleashed Here",
-        date: "29 March 2024",
-        url: "blog-detail/six"
-    },
-    {
-        id: 7,
-        image: "public/insight-blog/inblog-07.png",
-        title: "AI-Driven Branding Insights",
-        date: "27 March 2024",
-        url: "/blog-detail/seven" 
-    },
-    {
-        id: 8,
-        image: "public/insight-blog/inblog-08.png",
-        title: "Ads Mastery for Brand Growth",
-        date: "25 March 2024",
-        url: "/blog-detail/eight"
-    },
-    {
-        id: 9,
-        image: "public/insight-blog/inblog-09.png",
-        title: "Insights for Brand Building",
-        date: "21 March 2024",
-        url: "/blog-detail/nine"
+        image: "/icones/hero1.avif",
+        title: "L'importance d'un bon réseau d'entreprise",
+        date: "20 Août 2024",
+        url: "#"
     }
 ]

@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+
 import team from "../../../../public/three/landingpage/teams.png"
 import cheepa from "../../../../public/three/landingpage/body/chipschapa.png"
 import { Button } from "@/components/ui/button"
@@ -23,13 +23,13 @@ export default function Resprime() {
         <div className="max-w-full w-full lg:px-20 lg:py-16 md:px-14 md:py-10 px-5 pt-7 pb-3 bg-neutral-100">
             <div className="w-full flex flex-col justify-between lg:gap-30 gap-8">
                 <div className="w-full flex flex-col lg:justify-right md:justify-center lg:gap-15 md:gap-10 gap-8">
-                    <h1 ref={headRef} className="w-full text-neutral-800 font-sans font-normal lg:text-8xl md:text-5xl text-5xl lg:text-center md:text-center text-start leading-[130%]">NEXA DIGITAL AGENCY</h1>
+                    <h1 ref={headRef} className="w-full text-neutral-800 font-sans font-normal lg:text-8xl md:text-5xl text-5xl lg:text-center md:text-center text-start leading-[130%]">ALT DIGITAL AGENCY</h1>
                     <div ref={timsRef} className="lg:ml-150 lg:w-[50%] flex lg:flex-row md:flex-row flex-col lg:gap-5 gap-3 justify-left items-left">
-                        <Image
+                        <img
                             src={team}
                             alt="team members"
                             className="w-[55%] md:w-[80%] lg:w-[40%] h-auto object-contain"
-                            priority
+                           
                         />
                         <p className="text-black font-normal leading-[140%] text-base md:text-xl lg:w-[40%] lg:text-2xl text-center lg:text-left">
                             You&apos;ll collaborate with our experts.
@@ -56,7 +56,7 @@ export default function Resprime() {
                 </div>
 
 
-                <Image
+                <img
                     ref={chiRef}
                     src={cheepa}
                     alt="upper section"

@@ -1,10 +1,10 @@
 "use client"
-import Image from "next/image"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import Chitato from "../../../../public/second/landing-page/header/chipschapa.png"
-import Studio from "../../../../public/second/landing-page/header/shooting.png"
-import Bottle from "../../../../public/second/landing-page/header/presure.png"
+const Chitato = "/second/landing-page/header/chipschapa.png";
+const Studio = "/second/landing-page/header/shooting.png";
+const Bottle = "/second/landing-page/header/presure.png";
 import { useRef } from "react"
 import { useFadeIn } from "@/library/animations"
 
@@ -26,23 +26,23 @@ export default function IntroCover() {
             <div className="lg:justify-between justify-left items-left flex flex-col gap-2">
                 <div className="block">
                     <h1 ref={headeRef} className="font-sans font-medium text-left text-7xl text-neutral-800 leading-[130%]">
-                        Meet <br /> Nexa
+                        Meet <br /> ALT
                     </h1>
-                    <Image
+                    <img
                         ref={potaRef}
                         src={Chitato}
                         alt="radical toast product"
                         className="lg:absolute lg:opacity-[100%] lg:z-2 lg:scale-[30%] opacity-0 lg:left-[300px] lg:bottom-[-50px] md:opacity-[100%] md:scale-[70%] lg:visible invisible"
                     />
 
-                    <Image
+                    <img
                         ref={studyRef}
                         src={Studio}
                         alt="studio action go"
                         className="lg:relative lg:opacity-[100%] opacity-0 lg:scale-[35%] lg:left-[200px] lg:bottom-[470px] md:opacity-[100%] md:scale-[60%] lg:visible invisible"
                     />
 
-                    <Image
+                    <img
                         ref={botRef}
                         src={Bottle}
                         alt="product ads comerce"

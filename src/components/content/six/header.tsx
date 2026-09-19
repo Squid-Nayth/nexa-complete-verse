@@ -1,7 +1,7 @@
 "use client"
-import Image from "next/image"
-import railey from "../../../../public/blog-detail/railey.png"
-import detail from "../../../../public/blog-detail/detailhead.png"
+
+const railey = "/blog-detail/railey.png";
+const detail = "/blog-detail/detailhead.png";
 import { useRef } from "react"
 import { useFadeIn } from "@/library/animations"
 
@@ -22,7 +22,7 @@ export default function SixThemes() {
                     App Innovation Unleashed Here
                 </h1>
                 <div ref={foundRef} className="lg:w-[50%] flex flex-row gap-4 justify-start items-center">
-                    <Image
+                    <img
                         src={railey}
                         alt="founder"
                         className="w-[10%] h-[10%]"
@@ -32,7 +32,7 @@ export default function SixThemes() {
             </div>
 
             <div ref={imageRef} className="lg:relative">
-                <Image 
+                <img 
                   src={detail}
                   alt="photos market"
                   className="lg:absolute lg:z-0 grayscale lg:w-[40%] lg:right-[-10px] lg:top-[-300px]"

@@ -1,9 +1,9 @@
 "use client"
 
-import Image from "next/image"
-import Note from "../../../../public/insight-blog/inblog-04.png"
-import Tims from "../../../../public/one/landing-photos/branding.png"
-import Meeting from "../../../../public/about/Video-Showcase.png"
+
+const Note = "/insight-blog/inblog-04.png";
+const Tims = "/one/landing-photos/branding.png";
+const Meeting = "/about/Video-Showcase.png";
 import { useFadeIn } from "@/library/animations"
 import { useRef } from "react"
 
@@ -33,14 +33,14 @@ export default function TressurelyDescription() {
                 </p>
 
                 <div className="justify-right items-right lg:relative lg:mt-[-200px] lg:mb-[-700px] flex flex-col gap-10">
-                    <Image
+                    <img
                         ref={NoteRef}
                         src={Note}
                         alt="photos"
                         className="lg:relative lg:scale-[50%] lg:left-[200px]"
                     />
 
-                    <Image
+                    <img
                         ref={TeamRef}
                         src={Tims}
                         alt="branding"
@@ -58,7 +58,7 @@ export default function TressurelyDescription() {
                     </p>
                 </div>
 
-                <Image
+                <img
                     ref={MeetRef}
                     src={Meeting}
                     alt="discusion teams"

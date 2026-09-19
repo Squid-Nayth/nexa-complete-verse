@@ -1,18 +1,24 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: "Manrope", sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
 @theme {
+  --color-alt-blue: #1769FF;
+  --color-alt-slate: #1F2A37;
+  --color-alt-light: #F4F6F8;
   --color-neutral-100: #FFFFFF;
   --color-neutral-200: #F5F5F5;
   --color-neutral-300: #E6E8E8;
@@ -26,21 +32,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #fff;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
   }
 }
 
-@font-face {
-  font-family: 'Open Sauce Sans';
-  src: url('/src/app/OpenSauceSans/OpenSauceSans-Regular.ttf') format(truetype);
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+.dark {
+  --background: #0F172A;
+  --foreground: #ffffff;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Open Sauce Sans' sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

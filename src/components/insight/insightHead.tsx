@@ -1,6 +1,6 @@
 "use client"
 import { useRef } from "react"
-import { useFadeIn } from "@/library/animations"
+import { useFadeIn } from "@/library/animations/useFadeIn"
 
 export default function Insider() {
     
@@ -11,18 +11,15 @@ export default function Insider() {
     useFadeIn(graphRef, 0.3);
 
     return (
-        <div className="max-w-full w-full bg-white lg:px-18 lg:pt-16 lg:pb-20 md:px-14 px-9 pt-5 pb-8">
-            <div className="w-full justify-left items-left flex flex-col lg:gap-25 gap-16">
-                <h1 ref={headRef} className="w-full text-left lg:text-7xl md:text-4xl text-3xl font-normal font-sans text-black leading-[150%]">
-                    Digital Diaries: <br />
-                    Strategies and Insights for Success
+        <div className="max-w-full w-full bg-alt-light dark:bg-[#0F172A] transition-colors duration-300 lg:px-20 lg:pt-24 lg:pb-20 md:px-14 md:pt-20 px-8 pt-16 pb-12">
+            <div className="w-full justify-between items-start flex flex-col lg:flex-row gap-10">
+                <h1 ref={headRef} className="w-full lg:w-[60%] text-left lg:text-5xl md:text-4xl text-3xl font-normal font-sans text-alt-slate dark:text-white leading-[140%]">
+                    Ressources & <br />
+                    <span className="text-alt-blue">Actualités ALT</span>
                 </h1>
 
-                <p ref={graphRef} className="lg:text-end md:text-end text-black font-sans font-normal lg:text-3xl md:text-xl text-lg leading-[140%]">
-                    — Unlocking Strategies, Trends, <br/>
-                    and Insights to Propel Your Brand <br/>
-                    Forward in the Dynamic World of <br/>
-                    Digital Marketing.
+                <p ref={graphRef} className="w-full lg:w-[40%] lg:text-right md:text-left text-left text-neutral-600 dark:text-neutral-400 font-sans font-normal lg:text-xl md:text-xl text-lg leading-[160%]">
+                    Découvrez nos derniers articles, analyses de tendances et retours d'expérience pour vous accompagner dans votre transformation digitale.
                 </p>
             </div>
         </div>

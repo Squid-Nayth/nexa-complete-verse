@@ -1,9 +1,9 @@
 "use client"
 
-import Image from "next/image";
-import Chitato from "../../../../public/three/landingpage/body/chipschapa.png"
-import Studio from "../../../../public/three/landingpage/body/shooting.png"
-import Bin from "../../../../public/three/landingpage/body/binary.png"
+
+const Chitato = "/three/landingpage/body/chipschapa.png";
+const Studio = "/three/landingpage/body/shooting.png";
+const Bin = "/three/landingpage/body/binary.png";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useFadeIn } from "@/library/animations";
@@ -57,17 +57,17 @@ export default function Featurest() {
                     <div className="w-full flex flex-col gap-14">
                         <h3 ref={fredoRef} className="lg:w-[35%] lg:pb-2 pb-4 text-4xl text-neutral-100 font-medium font-sans border-b-2 border-neutral-500">01/ DIGITAL STRATEGY.</h3>
                         <div ref={mageRef} className="flex lg:flex-row lg:justify-between md:flex-row md:justify-between flex-col justify-left gap-4">
-                            <Image
+                            <img
                                 src={Chitato}
                                 alt="snack packaging design"
                                 className="w-full lg:w-1/3 md:w-1/3 lg:relative lg:top-15"
                             />
-                            <Image
+                            <img
                                 src={Bin}
                                 alt="binary data illustration"
                                 className="w-full lg:w-1/3 md:w-1/3 lg:scale-[70%]"
                             />
-                            <Image
+                            <img
                                 src={Studio}
                                 alt="studio photography"
                                 className="w-full lg:w-1/3 md:w-1/3 lg:relative lg:top-15"

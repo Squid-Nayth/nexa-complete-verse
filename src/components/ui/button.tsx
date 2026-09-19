@@ -9,8 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        trans: "bg-transparent flex flex-row cursor-pointer",
-        outline: "bg-transparent flex flex-row cursor-pointer"
+        default: "bg-alt-blue text-white hover:brightness-110",
+        trans: "flex flex-row cursor-pointer hover:brightness-110",
+        outline: "bg-transparent border border-alt-blue text-alt-blue hover:bg-alt-blue hover:text-white flex flex-row cursor-pointer"
       },
       size: {
         default: "h-9 px-3 py-5",

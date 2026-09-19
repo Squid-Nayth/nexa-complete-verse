@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import Image from "next/image"
-import Chitato from "../../../../public/second/landing-page/header/chipschapa.png"
-import Studio from "../../../../public/second/landing-page/header/shooting.png"
-import Bin from "../../../../public/second/landing-page/body/binary.png"
+
+const Chitato = "/second/landing-page/header/chipschapa.png";
+const Studio = "/second/landing-page/header/shooting.png";
+const Bin = "/second/landing-page/body/binary.png";
 import { useRef } from "react"
 import { useFadeIn } from "@/library/animations/useFadeIn"
 
@@ -67,17 +67,17 @@ export default function Marketing() {
                     </div>
 
                     <div ref={imageRef} className="w-full flex lg:flex-row md:flex-row flex-col lg:gap-8 gap-6 justify-start items-start">
-                        <Image
+                        <img
                             src={Chitato}
                             alt="snack packaging design"
                             className="w-full lg:w-1/3 md:w-[31%]"
                         />
-                        <Image
+                        <img
                             src={Bin}
                             alt="binary data illustration"
                             className="w-full lg:w-1/3 md:w-[31%]"
                         />
-                        <Image
+                        <img
                             src={Studio}
                             alt="studio photography"
                             className="w-full lg:w-1/3 md:w-[31%]"

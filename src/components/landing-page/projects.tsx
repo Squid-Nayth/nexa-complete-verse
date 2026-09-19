@@ -1,10 +1,8 @@
 "use client"
-import Image from "next/image"
+
 import { Button } from "../ui/button"
 import { ArrowRight } from "lucide-react"
-import work1 from "../../../public/one/landing-photos/worker/firsly-work.png"
-import work2 from "../../../public/one/landing-photos/worker/secondary-work.png"
-import work3 from "../../../public/one/landing-photos/worker/threel-work.png"
+import { Link } from "react-router-dom"
 import { useRef } from "react"
 import { useFadeIn } from "@/library/animations/useFadeIn"
 
@@ -28,23 +26,26 @@ export default function Worksheet() {
   useFadeIn(tangoRef, 0.3)
 
   return (
-    <section className="relative max-w-full w-full bg-white overflow-hidden lg:px-20 lg:py-36 md:px-14 md:py-24 px-8 py-16 mb-0">
-      <div className="flex flex-col w-full lg:gap-28 md:gap-20 gap-14">
+    <section id="realisations" className="w-full max-w-full bg-[#F8FAFC] dark:bg-[#0F172A] transition-colors duration-300 overflow-x-hidden lg:px-20 md:px-14 px-8 lg:py-24 md:py-16 py-12 scroll-mt-32">
+      <div className="flex flex-col gap-12 lg:gap-20">
         
         {/* Header */}
         <div className="flex lg:flex-row md:flex-col flex-col justify-between gap-10">
           <h2
             ref={headRef}
-            className="lg:w-[50%] w-full text-left lg:text-5xl md:text-4xl text-3xl font-normal font-sans text-black leading-[150%]"
+            className="font-sans text-alt-slate dark:text-white font-normal leading-[140%] w-full md:w-[60%] lg:w-[50%] text-3xl md:text-4xl lg:text-5xl"
           >
-            The work we do, <br /> and the people we help
+            Nos réalisations : <br/>
+            <span className="text-alt-blue font-semibold">Ils nous font confiance</span>
           </h2>
 
           <div ref={buttonRef} className="lg:mt-[100px] md:mt-6">
-            <Button className="flex flex-row justify-center gap-3">
-              <p className="text-black text-lg font-normal">All Case Study</p>
-              <ArrowRight height={22} width={22} className="text-black group-hover:text-white transition" />
-            </Button>
+            <Link to="/projets">
+              <Button className="flex flex-row justify-center gap-3 bg-transparent hover:bg-alt-blue hover:text-white transition-colors border border-alt-slate dark:border-white hover:border-alt-blue rounded-md px-6 group">
+                <p className="text-alt-slate dark:text-white group-hover:text-white text-lg font-normal transition-colors">Tous nos projets</p>
+                <ArrowRight height={22} width={22} className="text-alt-slate dark:text-white group-hover:text-white transition-colors" />
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -53,77 +54,77 @@ export default function Worksheet() {
           
           {/* Case 1 */}
           <div className="flex lg:flex-row md:flex-row flex-col justify-start items-start gap-8 lg:gap-0">
-            <div ref={firstRef} className="flex flex-col gap-6 bg-transparent lg:ml-[10px]">
-              <h5 className="text-2xl font-normal text-left text-black">/ HOUSEL</h5>
-              <h4 className="lg:text-4xl text-2xl font-normal text-left text-black leading-[140%] lg:w-[50%]">
-                Help you to sell, buy, 
-                mortgage, invest property, 
-                and other real estate service.
+            <div ref={firstRef} className="flex flex-col gap-6 bg-transparent lg:ml-[10px] z-10 bg-white/90 dark:bg-[#0F172A]/90 p-6 lg:p-0">
+              <h5 className="text-2xl font-normal text-left text-alt-blue">/ MINISTÈRE DE L'ÉCONOMIE</h5>
+              <h4 className="lg:text-4xl text-2xl font-normal text-left text-alt-slate dark:text-white leading-[140%] lg:w-[80%]">
+                Déploiement d'une infrastructure réseau sécurisée et modernisation du SI.
               </h4>
-              <Button className="justify-start gap-[9px] mt-2">
-                <p className="text-black lg:text-xl md:text-lg text-base font-normal">View case study</p>
-                <ArrowRight height={23} width={23} className="text-black group-hover:text-white transition" />
-              </Button>
+              <Link to="/realisations/ministere-economie">
+                <Button className="justify-start gap-[9px] mt-2 bg-transparent hover:bg-transparent px-0">
+                  <p className="text-alt-slate dark:text-white hover:text-alt-blue lg:text-xl md:text-lg text-base font-normal transition-colors border-b border-alt-slate dark:border-white hover:border-alt-blue">En savoir plus</p>
+                  <ArrowRight height={23} width={23} className="text-alt-slate dark:text-white" />
+                </Button>
+              </Link>
             </div>
 
-            <div ref={figeRef} className="lg:w-[80%] md:w-[50%] lg:ml-[-250px] lg:mr-[180px] w-full overflow-hidden">
-              <Image
-                src={work1}
-                alt="worker first photos"
-                className="w-full aspect-[16/9] object-cover"
-                priority
+            <div ref={figeRef} className="lg:w-[80%] md:w-[50%] lg:ml-[-250px] lg:mr-[180px] w-full overflow-hidden rounded-lg shadow-xl">
+              <img
+                src="/icones/hero1.avif"
+                alt="Projet Réseau"
+                className="w-full aspect-[16/9] object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
           </div>
 
           {/* Case 2 */}
-          <div className="flex lg:flex-row-reverse md:flex-row-reverse flex-col-reverse lg:items-end lg:justify-end md:justify-end md:items-end justify-start lg:ml-[300px] gap-8">
-            <div ref={sagaRef} className="lg:w-[55%] md:w-[50%] w-full overflow-hidden">
-              <Image
-                src={work2}
-                alt="worker second photos"
-                className="w-full aspect-[16/9] object-cover"
+          <div className="flex lg:flex-row-reverse md:flex-row-reverse flex-col-reverse lg:items-end lg:justify-end md:justify-end md:items-end justify-start lg:ml-[200px] gap-8">
+            <div ref={sagaRef} className="lg:w-[65%] md:w-[50%] w-full overflow-hidden rounded-lg shadow-xl">
+              <img
+                src="/icones/finance.jpg"
+                alt="Développement sur mesure"
+                className="w-full aspect-[16/9] object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
 
-            <div ref={secondRef} className="flex flex-col gap-6 bg-transparent">
-              <h5 className="text-2xl font-normal text-left text-black">/ CONTEXT AI</h5>
-              <h4 className="lg:text-3xl text-2xl font-normal text-left text-black leading-[140%]">
-                Empowers developers <br />
-                and companies to <br />
-                build outstanding <br />
-                products.
+            <div ref={secondRef} className="flex flex-col gap-6 bg-transparent z-10 bg-white/90 dark:bg-[#0F172A]/90 p-6 lg:p-0">
+              <h5 className="text-2xl font-normal text-left text-alt-blue">/ GROUPE FINANCIER CEMAC</h5>
+              <h4 className="lg:text-3xl text-2xl font-normal text-left text-alt-slate dark:text-white leading-[140%]">
+                Développement d'une application <br />
+                de gestion financière <br />
+                sur mesure.
               </h4>
-              <Button className="justify-start gap-[9px] mt-2">
-                <p className="text-black lg:text-xl md:text-lg text-base font-normal">View case study</p>
-                <ArrowRight height={23} width={23} className="text-black group-hover:text-white transition" />
-              </Button>
+              <Link to="/realisations/groupe-financier">
+                <Button className="justify-start gap-[9px] mt-2 bg-transparent hover:bg-transparent px-0">
+                  <p className="text-alt-slate dark:text-white hover:text-alt-blue lg:text-xl md:text-lg text-base font-normal transition-colors border-b border-alt-slate dark:border-white hover:border-alt-blue">En savoir plus</p>
+                  <ArrowRight height={23} width={23} className="text-alt-slate dark:text-white" />
+                </Button>
+              </Link>
             </div>
           </div>
 
           {/* Case 3 */}
           <div className="flex lg:flex-row-reverse md:flex-row-reverse flex-col-reverse justify-start items-start lg:ml-[-200px] gap-10">
-            <div ref={thirdRef} className="flex flex-col gap-6 bg-transparent">
-              <h5 className="text-2xl font-normal text-left text-black">/ CLOODY</h5>
-              <h4 className="lg:text-3xl text-xl font-normal text-left text-black leading-[140%]">
-                Allowing users to <br />
-                upload and sync files <br />
-                to cloud storage and <br />
-                then access <br />
-                them via Web Browser <br /> 
-                or device.
+            <div ref={thirdRef} className="flex flex-col gap-6 bg-transparent z-10 bg-white/90 dark:bg-[#0F172A]/90 p-6 lg:p-0">
+              <h5 className="text-2xl font-normal text-left text-alt-blue">/ STARTUP LOGISTIQUE</h5>
+              <h4 className="lg:text-3xl text-xl font-normal text-left text-alt-slate dark:text-white leading-[140%]">
+                Migration cloud complète <br />
+                et mise en place <br />
+                d'un plan de reprise <br />
+                d'activité (PRA).
               </h4>
-              <Button className="justify-start gap-[9px] mt-2">
-                <p className="text-black lg:text-xl md:text-lg text-base font-normal">View case study</p>
-                <ArrowRight height={23} width={23} className="text-black group-hover:text-white transition" />
-              </Button>
+              <Link to="/realisations/startup-logistique">
+                <Button className="justify-start gap-[9px] mt-2 bg-transparent hover:bg-transparent px-0">
+                  <p className="text-alt-slate dark:text-white hover:text-alt-blue lg:text-xl md:text-lg text-base font-normal transition-colors border-b border-alt-slate dark:border-white hover:border-alt-blue">En savoir plus</p>
+                  <ArrowRight height={23} width={23} className="text-alt-slate dark:text-white" />
+                </Button>
+              </Link>
             </div>
 
-            <div ref={tangoRef} className="lg:w-[60%] md:w-[50%] w-full overflow-hidden">
-              <Image
-                src={work3}
-                alt="worker third photos"
-                className="w-full aspect-[16/9] object-cover"
+            <div ref={tangoRef} className="lg:w-[60%] md:w-[50%] w-full overflow-hidden rounded-lg shadow-xl">
+              <img
+                src="/icones/hero2.avif"
+                alt="Migration Cloud"
+                className="w-full aspect-[16/9] object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
           </div>

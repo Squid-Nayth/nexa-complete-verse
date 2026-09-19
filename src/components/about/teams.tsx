@@ -1,65 +1,52 @@
 "use client"
 
-import Image from "next/image"
-import Antony from "../../../public/about/team/team-antony.png"
-import Luna from "../../../public/about/team/team-luna.png"
-import Sakhir from "../../../public/about/team/team-sakhir.png"
-import Wayne from "../../../public/about/team/team-wayne.png"
 import { useRef } from "react"
 import { useFadeIn } from "@/library/animations/useFadeIn"
 
 export default function Teams() {
-    const oneRef = useRef<HTMLImageElement>(null);
-    const twoRef = useRef<HTMLImageElement>(null);
-    const thRef = useRef<HTMLImageElement>(null);
-    const fouRef = useRef<HTMLImageElement>(null);
     const themeRef = useRef<HTMLHeadingElement>(null);
+    const descRef = useRef<HTMLParagraphElement>(null);
 
-    useFadeIn(oneRef, 0.3);
-    useFadeIn(twoRef, 0.3);
-    useFadeIn(thRef, 0.3);
-    useFadeIn(fouRef, 0.3);
     useFadeIn(themeRef, 0.3);
+    useFadeIn(descRef, 0.3);
+
+    const teamMembers = [
+        { name: "Direction", role: "Vision & Stratégie", img: "/icones/consulting.jpg" },
+        { name: "Équipe Technique", role: "Développement & Infrastructure", img: "/icones/dev.jpg" },
+        { name: "Consultants", role: "Conseil & Accompagnement", img: "/icones/cybersecurity.jpg" },
+    ]
 
     return (
-        <section className="relative lg:px-30 lg:py-30 md:px-22 md:py-22">
-            <Image
-                ref={fouRef}
-                src={Antony}
-                alt="team-antony"
-                className="absolute grayscale scale-30 md:scale-25 lg:scale-25 lg:right-[-200px] lg:bottom-[-350px] md:bottom-[-310px] md:right-[-270px] right-[120px] bottom-[-140px]"
-            />
-
-            <Image
-                ref={oneRef}
-                src={Luna}
-                alt="team-luna"
-                className="absolute grayscale scale-35 md:scale-35 lg:scale-40 lg:right-[-150px] lg:bottom-[230px] md:right-[-220px] right-[100px] bottom-[180px]"
-            />
-
-            <div className="z-5 w-full px-25 pt-30 pb-40 relative justify-center items-center">
-                <div className="justify-center items-center">
-                    <h2 ref={themeRef} className="w-full text-black text-center text-xl lg:text-5xl md:text-3xl font-sans font-medium leading-[130%]">
-                        Meet Our Troops of Creative
+        <section className="w-full bg-alt-light dark:bg-[#1E293B] transition-colors duration-300 lg:px-20 lg:py-24 md:px-14 md:py-16 px-8 py-12">
+            <div className="flex flex-col gap-16">
+                <div className="flex flex-col gap-6 text-center lg:w-[60%] mx-auto">
+                    <h2 ref={themeRef} className="text-3xl md:text-4xl lg:text-5xl font-sans font-medium text-alt-slate dark:text-white leading-[130%]">
+                        Notre Équipe
                     </h2>
+                    <p ref={descRef} className="text-lg text-neutral-600 dark:text-neutral-400 leading-[160%]">
+                        ALT réunit des experts passionnés par les technologies de l'information. Nos développeurs, ingénieurs systèmes, experts en cybersécurité et consultants collaborent pour concevoir des solutions innovantes.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                    {teamMembers.map((member, idx) => (
+                        <div key={idx} className="flex flex-col gap-4 group">
+                            <div className="w-full overflow-hidden rounded-xl h-[350px]">
+                                <img 
+                                    src={member.img} 
+                                    alt={member.name} 
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                            </div>
+                            <div className="flex flex-col gap-1 text-center">
+                                <h3 className="text-2xl font-medium text-alt-slate dark:text-white">{member.name}</h3>
+                                <p className="text-alt-blue font-medium">{member.role}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
-
-            <Image
-                ref={thRef}
-                src={Sakhir}
-                alt="team-sakhir"
-                className="absolute grayscale scale-30 md:scale-25 lg:scale-35 lg:left-[-150px] lg:bottom-[-150px] md:left-[-250px] md:bottom-[-150px] left-[123px] bottom-[-80px]"
-            />
-
-            <Image
-                ref={twoRef}
-                src={Wayne}
-                alt="team-wayne"
-                className="absolute grayscale scale-30 lg:scale-32 lg:left-[-250px] lg:bottom-[170px] md:left-[-250px] md:bottom-[120px] left-[120px] bottom-[150px]"
-            />
         </section>
-
     )
 }
 

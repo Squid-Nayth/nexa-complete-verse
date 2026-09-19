@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { useFadeIn } from "@/library/animations";
@@ -65,11 +65,11 @@ export default function Uppertise() {
               <h3 className="text-neutral-800 lg:text-3xl text-lg font-normal font-sans mb-2 text-center">
                 {slides[current].title}
               </h3>
-              <Image
+              <img
                 src={slides[current].img}
                 alt={slides[current].alt}
                 className="h-[370px] lg:h-[700px] w-auto object-contain"
-                priority
+               
               />
             </motion.div>
           </AnimatePresence>

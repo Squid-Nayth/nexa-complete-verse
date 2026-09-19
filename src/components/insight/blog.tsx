@@ -1,11 +1,9 @@
 "use client";
 
 import { insightBlog } from "@/data/insight";
-import Image from "next/image";
 import { Button } from "../ui/button";
 import { useState, useRef } from "react";
-import Link from "next/link";
-// Hapus useFadeIn, Import useStaggerChildren
+import { Link } from "react-router-dom";
 import { useStaggerChildren } from "@/library/animations/useStaggerChildren"; 
 
 export default function InsightSection() {
@@ -14,105 +12,81 @@ export default function InsightSection() {
 
   const blogRef = useRef<HTMLDivElement>(null);
   
-  // Terapkan useStaggerChildren pada blogRef, menargetkan elemen dengan class '.insight-item'
   useStaggerChildren(blogRef, ".insight-item", 0.2);
 
   return (
-    // Pindahkan ref={blogRef} ke elemen <section> utama
-    <section className="py-12 px-4 md:px-14 lg:px-20" ref={blogRef}>
+    <section className="py-12 px-6 md:px-14 lg:px-20 bg-white dark:bg-[#0F172A] transition-colors duration-300" ref={blogRef}>
       
       {/* Mobile View */}
-      {/* Ref dihapus dari sini */}
-      <div className="block md:hidden space-y-8c">
+      <div className="block md:hidden space-y-8">
         {blogsToShow.map((item, index) => (
-          // Tambahkan class 'insight-item' dan style awal
-          <Link
-            key={index}
-            href={item.url}
+          <Link key={index} to={item.url}
             className="flex flex-col gap-3 insight-item" 
             style={{ opacity: 0 }} 
           >
-            <div
-              className="relative w-full lg:h-[200px] h-[250px]"
-            >
-              <Image
-                src={item.image.replace("public/", "/")}
+            <div className="relative w-full h-[250px] overflow-hidden rounded-xl shadow-md">
+              <img
+                src={item.image}
                 alt={item.title}
-                fill
-                className="object-cover cursor-pointer"
+                className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <h3 className="font-medium lg:text-xl text-2xl text-black lg:cursor-pointer">
+            <h3 className="font-medium text-2xl text-alt-slate dark:text-white mt-2">
               {item.title}
             </h3>
-            <p className="text-base text-gray-500">{item.date}</p>
+            <p className="text-base text-neutral-500 dark:text-neutral-400">{item.date}</p>
           </Link>
         ))}
 
         {!showAll && (
-          // Tambahkan class 'insight-item' pada wrapper tombol 'See more'
           <div className="pt-4 insight-item" style={{ opacity: 0 }}>
             <Button
               variant="outline"
-              className="text-xl font-medium font-sans text-black px-25"
+              className="text-lg font-medium text-alt-blue border-alt-blue hover:bg-alt-blue hover:text-white w-full py-6 transition-colors"
               onClick={() => setShowAll(true)}
             >
-              See more →
+              Voir plus →
             </Button>
           </div>
         )}
       </div>
 
       {/* Tablet View */}
-      {/* Ref dihapus dari sini */}
-      <div className="hidden md:grid lg:hidden grid-cols-2 gap-6">
+      <div className="hidden md:grid lg:hidden grid-cols-2 gap-8">
         {insightBlog.map((item, index) => (
-          // Tambahkan class 'insight-item' dan style awal
-          <Link
-            key={index + "tablet"}
-            href={item.url}
+          <Link key={index} to={item.url}
             className="flex flex-col gap-3 insight-item"
             style={{ opacity: 0 }} 
           >
-            <div
-              className="relative w-full h-[240px]"
-            >
-              <Image
-                src={item.image.replace("public/", "/")}
+            <div className="relative w-full h-[240px] overflow-hidden rounded-xl shadow-md">
+              <img
+                src={item.image}
                 alt={item.title}
-                fill
-                className="object-cover aspect-[1/1]"
+                className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <h3 className="font-medium text-lg text-black">{item.title}</h3>
-            <p className="text-sm text-gray-500">{item.date}</p>
+            <h3 className="font-medium text-lg text-alt-slate dark:text-white mt-2">{item.title}</h3>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">{item.date}</p>
           </Link>
         ))}
       </div>
 
       {/* Desktop Grid */}
-      {/* Ref dihapus dari sini */}
-      <div className="hidden lg:grid grid-cols-3 gap-6">
+      <div className="hidden lg:grid grid-cols-3 gap-10">
         {insightBlog.map((item, index) => (
-          // Tambahkan class 'insight-item' dan style awal
-          <Link
-            key={index + "desktop"}
-            href={item.url}
-            className="flex flex-col gap-3 insight-item"
+          <Link key={index} to={item.url}
+            className="flex flex-col gap-3 insight-item group"
             style={{ opacity: 0 }}
           >
-            <div
-              className="relative w-full lg:h-[300px]"
-            >
-              <Image
-                src={item.image.replace("public/", "/")}
+            <div className="relative w-full h-[300px] overflow-hidden rounded-xl shadow-md">
+              <img
+                src={item.image}
                 alt={item.title}
-                fill
-                className="object-cover aspect-[1/1]"
+                className="w-full h-full object-cover cursor-pointer group-hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <h3 className="font-medium text-lg text-black">{item.title}</h3>
-            <p className="text-sm text-gray-500">{item.date}</p>
+            <h3 className="font-medium text-xl text-alt-slate dark:text-white mt-2 group-hover:text-alt-blue transition-colors">{item.title}</h3>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">{item.date}</p>
           </Link>
         ))}
       </div>

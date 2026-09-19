@@ -1,10 +1,10 @@
 "use client"
 
-import Image from "next/image";
+
 import { ArrowRight } from "lucide-react";
-import Converter from "../../../../public/second/works/center/upper.png"
-import Lofi from "../../../../public/second/works/center/left.png"
-import Rigel from "../../../../public/second/works/center/right.png"
+const Converter = "/second/works/center/upper.png";
+const Lofi = "/second/works/center/left.png";
+const Rigel = "/second/works/center/right.png";
 import { useFadeIn } from "@/library/animations/useFadeIn";
 import { useRef } from "react";
 
@@ -26,7 +26,7 @@ export default function CenterWorks() {
             <div className="w-full flex flex-col lg:gap-18 gap-12">
                 <div className="w-full flex flex-col lg:gap-14 gap-6">
                     <div ref={uppermageRef}>
-                        <Image
+                        <img
                             src={Converter}
                             alt="center works primary"
                             className="w-full"
@@ -42,7 +42,7 @@ export default function CenterWorks() {
                 </div>
                 <div className="w-full flex lg:flex-row md:flex-row flex-col lg:gap-20 gap-12">
                     <div ref={lowerlevronRef} className="flex flex-col gap-8">
-                        <Image
+                        <img
                             src={Lofi}
                             alt="center lower left"
                             className="w-full"
@@ -53,7 +53,7 @@ export default function CenterWorks() {
                         </div>
                     </div>
                     <div ref={loweregRef} className="flex flex-col gap-8">
-                        <Image
+                        <img
                             src={Rigel}
                             alt="center lower right"
                             className="w-full"

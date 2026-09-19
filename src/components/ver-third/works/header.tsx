@@ -1,8 +1,8 @@
 "use client"
 
-import Image from "next/image"
-import team from "../../../../public/three/landingpage/teams.png"
-import upper from "../../../../public/about/upper-about.png"
+
+const team = "/three/landingpage/teams.png";
+const upper = "/about/upper-about.png";
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useFadeIn } from "@/library/animations"
@@ -23,7 +23,7 @@ export default function Worked() {
                 <div className="w-full flex flex-col justify-right lg:gap-15 gap-8">
                     <h1 ref={headRef} className="w-full text-neutral-800 font-sans font-medium lg:text-8xl text-5xl lg:text-center text-left leading-[130%]">CHECK OUR WORKS</h1>
                     <div ref={timsRef} className="lg:ml-120 lg:w-[50%] flex lg:flex-row flex-col lg:gap-2 gap-3 justify-left items-left">
-                        <Image
+                        <img
                             src={team}
                             alt="photos"
                             className="ml-[-45px] lg:scale-[70%] scale-[75%] lg:ml-0"
@@ -51,7 +51,7 @@ export default function Worked() {
                 </div>
 
                 <div>
-                    <Image
+                    <img
                         src={upper}
                         alt="upper section"
                         className="lg:w-[40%] lg:absolute lg:opacity-[100%] opacity-0 grayscale lg:top-[700px] lg:left-[750px]"

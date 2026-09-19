@@ -1,11 +1,11 @@
 "use client"
 
-import Image from "next/image";
+
 import { ArrowRight } from "lucide-react";
-import cloody from "../../../../public/three/landingpage/worker/cloody.png"
-import dockey from "../../../../public/three/landingpage/worker/docker.png"
-import house from "../../../../public/three/landingpage/worker/housel.png"
-import ai from "../../../../public/three/landingpage/worker/contai.png"
+const cloody = "/three/landingpage/worker/cloody.png";
+const dockey = "/three/landingpage/worker/docker.png";
+const house = "/three/landingpage/worker/housel.png";
+const ai = "/three/landingpage/worker/contai.png";
 import { useFadeIn } from "@/library/animations";
 import { useRef } from "react";
 
@@ -49,7 +49,7 @@ export default function WorkerFiles() {
                 <div className="w-full flex lg:flex-row md:flex-row flex-col lg:gap-25 md:gap-15">
                     <div className="w-full flex flex-col lg:gap-20 gap-10">
                         <div className="w-full flex flex-col gap-8">
-                            <div ref={housemageRef}><Image src={house} alt="cloudess-image-upper" /></div>
+                            <div ref={housemageRef}><img src={house} alt="cloudess-image-upper" /></div>
                             <div className="flex flex-row justify-between">
                                 <h4 ref={housetitleRef} className="text-neutral-800 lg:text-2xl text-xl font-size font-medium text-left">/ HOUSEL</h4>
                                 <div ref={houserrow}><ArrowRight className="text-neutral-700 font-medium" /></div>
@@ -57,7 +57,7 @@ export default function WorkerFiles() {
                         </div>
 
                         <div className="w-full flex flex-col gap-8">
-                            <div ref={intelekRef}><Image src={ai} alt="cloudess-image-upper" /></div>
+                            <div ref={intelekRef}><img src={ai} alt="cloudess-image-upper" /></div>
                             <div className="flex flex-row justify-between">
                                 <h4 ref={intitleRef} className="text-neutral-800 lg:text-2xl text-xl font-size font-medium text-left">/ CONTEXT AI</h4>
                                 <div ref={interrow}><ArrowRight className="text-neutral-700 font-medium" /></div>
@@ -67,7 +67,7 @@ export default function WorkerFiles() {
 
                     <div className="w-full flex flex-col lg:pt-50 lg:gap-20 gap-10">
                         <div className="w-full flex flex-col gap-8">
-                            <div ref={cloodyRef}><Image src={cloody} alt="cloudess-image-upper" /></div>
+                            <div ref={cloodyRef}><img src={cloody} alt="cloudess-image-upper" /></div>
                             <div className="flex flex-row justify-between">
                                 <h4 ref={cloodeRef} className="text-neutral-800 lg:text-2xl text-xl font-size font-medium text-left">/ CLOODY</h4>
                                 <div ref={clorophile}><ArrowRight className="text-neutral-700 font-medium" /></div>
@@ -75,7 +75,7 @@ export default function WorkerFiles() {
                         </div>
 
                         <div className="w-full flex flex-col gap-8">
-                            <div ref={dockeRef}><Image src={dockey} alt="cloudess-image-upper" /></div>
+                            <div ref={dockeRef}><img src={dockey} alt="cloudess-image-upper" /></div>
                             <div className="flex flex-row justify-between">
                                 <h4 ref={dotRef} className="text-neutral-800 lg:text-2xl text-xl font-size font-medium text-left">/ DOCKER</h4>
                                 <div ref={dorrow}><ArrowRight className="text-neutral-700 font-medium" /></div>

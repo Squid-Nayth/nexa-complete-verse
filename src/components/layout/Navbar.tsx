@@ -139,7 +139,7 @@ export default function Navbar() {
           {/* Dark Mode Toggle Animé */}
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="hidden lg:flex relative items-center w-[60px] h-8 rounded-full p-1 bg-neutral-200 dark:bg-neutral-800 transition-colors duration-300 overflow-hidden group"
+            className="flex relative items-center w-[60px] h-8 rounded-full p-1 bg-neutral-200 dark:bg-neutral-800 transition-colors duration-300 overflow-hidden group"
             aria-label="Toggle Dark Mode"
           >
             {/* Background slider */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin, Linkedin, Facebook } from "lucide-react";
 
 
 export default function ContactPage() {
@@ -20,7 +20,19 @@ export default function ContactPage() {
             </div>
             <div className="flex items-center gap-4">
               <img src="/icones/icons8-phone-100 (1).png" alt="Phone" width={32} height={32} className="dark:invert" />
-              <span className="text-lg font-medium text-alt-slate dark:text-neutral-200">+241 XX XX XX XX</span>
+              <span className="text-lg font-medium text-alt-slate dark:text-neutral-200">+241 07 81 32 79</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <MapPin className="text-alt-blue dark:text-neutral-400" size={32} strokeWidth={1.5} />
+              <span className="text-lg font-medium text-alt-slate dark:text-neutral-200">Okala, première pompe</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Linkedin className="text-alt-blue dark:text-neutral-400" size={32} strokeWidth={1.5} />
+              <span className="text-lg font-medium text-alt-slate dark:text-neutral-200">LinkedIn: @alt-gabon</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Facebook className="text-alt-blue dark:text-neutral-400" size={32} strokeWidth={1.5} />
+              <span className="text-lg font-medium text-alt-slate dark:text-neutral-200">Facebook: Advanced and Logic Technologies</span>
             </div>
           </div>
         </div>

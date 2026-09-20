@@ -161,18 +161,21 @@ export default function Footer() {
                 {/* Info */}
                 <div className="flex flex-col gap-4 col-span-1 lg:col-span-2">
                     <ul className="flex flex-row gap-5">
-                        <li className="text-neutral-400 hover:text-white cursor-pointer transition-colors p-2 hover:bg-neutral-800 rounded-full">
-                            <a href="#" aria-label="LinkedIn"><Linkedin size={24} /></a>
+                        <li className="text-neutral-400 hover:text-white cursor-pointer transition-colors p-2 hover:bg-neutral-800 rounded-full" title="@alt-gabon">
+                            <a href="https://linkedin.com/company/alt-gabon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn @alt-gabon"><Linkedin size={24} /></a>
                         </li>
-                        <li className="text-neutral-400 hover:text-white cursor-pointer transition-colors p-2 hover:bg-neutral-800 rounded-full">
-                            <a href="#" aria-label="Facebook"><Facebook size={24} /></a>
+                        <li className="text-neutral-400 hover:text-white cursor-pointer transition-colors p-2 hover:bg-neutral-800 rounded-full" title="Advanced and Logic Technologies">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook Advanced and Logic Technologies"><Facebook size={24} /></a>
                         </li>
                         <li className="text-neutral-400 hover:text-white cursor-pointer transition-colors p-2 hover:bg-neutral-800 rounded-full">
                             <a href="#" aria-label="Twitter"><Twitter size={24} /></a>
                         </li>
                     </ul>
-                    <p className="text-neutral-400 font-normal text-lg mt-4">Libreville, Gabon</p>
-                    <p className="text-neutral-400 font-normal text-lg">Zone OHADA/CEMAC</p>
+                    <div className="mt-4 flex flex-col gap-2">
+                        <p className="text-neutral-400 font-normal text-lg">Okala, première pompe<br />Libreville, Gabon</p>
+                        <p className="text-neutral-400 font-normal text-lg">+241 07 81 32 79</p>
+                        <p className="text-neutral-400 font-normal text-lg">contact@alt.ga</p>
+                    </div>
                 </div>
             </div>
 

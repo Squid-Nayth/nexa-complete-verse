@@ -1,7 +1,8 @@
 "use client"
 import { ArrowRight } from "lucide-react"
 import { Button } from "../ui/button"
-import { Link } from "react-router-dom";
+import Waves from "@/components/layout/Waves"
+
 import { useRef } from "react"
 import { useFadeIn } from "@/library/animations/useFadeIn"
 
@@ -15,8 +16,8 @@ export default function Introduce() {
   useFadeIn(bottomRef, 0.3)
 
   return (
-    <section className="w-full max-w-full bg-alt-light dark:bg-[#0F172A] transition-colors duration-300 lg:px-20 md:px-14 px-8 lg:pt-24 pt-14 lg:pb-0 pb-10 overflow-x-hidden">
-      <div className="flex flex-col justify-between gap-16">
+    <section className="relative w-full max-w-full bg-alt-light dark:bg-[#0F172A] transition-colors duration-300 lg:px-20 md:px-14 px-8 lg:pt-24 pt-14 lg:pb-0 pb-10 overflow-hidden">
+      <div className="flex flex-col justify-between gap-16 relative z-10">
         {/* Heading + Button */}
         <div className="flex flex-col gap-8 lg:gap-16">
           <h1
@@ -27,7 +28,7 @@ export default function Introduce() {
           </h1>
 
           <div ref={buttonRef}>
-            <Link to="/expertises">
+            <a href="#expertises">
               <Button className="flex items-center gap-2 border-b-2 border-alt-blue px-0 bg-transparent hover:bg-transparent rounded-none">
                 <p className="text-alt-blue text-lg md:text-xl lg:text-3xl font-medium">
                   Découvrir nos expertises
@@ -38,7 +39,7 @@ export default function Introduce() {
                   className="mt-[2px] text-alt-blue"
                 />
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -65,6 +66,9 @@ export default function Introduce() {
           </div>
         </div>
       </div>
+      
+      {/* Decorative Waves at the bottom of the section */}
+      <Waves className="absolute bottom-0 left-0 w-full" />
     </section>
   )
 }
